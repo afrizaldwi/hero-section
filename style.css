@@ -1,0 +1,284 @@
+/** @format */
+
+:root {
+	--primary: #dd9d4b;
+	--secondary: #90cdb6;
+	--stroke: #cfcbc6;
+	--light: #ffffff;
+	--dark: #353531;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	color: var(--light);
+	line-height: 1.4;
+}
+
+main {
+	background-image: url("./asset/img/background.jpg");
+	background-size: cover;
+	background-position: center center;
+	filter: brightness(90%);
+}
+
+.container {
+	margin: 0 2rem;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-between {
+	justify-content: space-between;
+}
+
+.btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* NAVBAR */
+
+.navbar {
+	padding: 2rem 0;
+}
+
+.navbar-brand img {
+	width: 8rem;
+}
+
+.navbar-nav {
+	padding: 2rem;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: var(--dark);
+	opacity: 0;
+	transform: scale(0.8);
+	visibility: hidden;
+	transition: all 0.35s ease-in 0.1s;
+}
+
+.navbar-nav.toggle {
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
+	transition: all 0.35s ease-in 0.1s;
+}
+
+.navbar-menu {
+	margin-bottom: 2rem;
+}
+
+.navbar-header,
+.nav-link {
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+.nav-item {
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+	content: "";
+	height: 0.125rem;
+	position: absolute;
+	top: 2rem;
+	display: block;
+	background-color: var(--secondary);
+	width: 100%;
+	opacity: 1;
+}
+
+.nav-link::after {
+	content: "";
+	width: 0;
+	opacity: 0;
+	transition: all 0.35s ease-in 0.1s;
+}
+
+.header {
+	margin: auto 0;
+	flex-direction: column;
+	height: 80vh;
+	width: 100%;
+}
+
+.desc {
+	text-align: center;
+}
+
+.desc-title,
+.btn-cta {
+	background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.desc-title {
+	font-size: 2.4rem;
+	letter-spacing: 1rem;
+	margin-bottom: 1rem;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.desc-caption {
+	font-size: 1.1rem;
+	margin-bottom: 3rem;
+	font-weight: 400;
+}
+
+.btn-cta {
+	font-size: 1.25rem;
+	padding: 0.5rem 2.5rem;
+	border-radius: 2rem;
+	box-shadow: inset 0.25rem 0.25rem 25rem #00000025,
+		0.25rem 0.25rem 25rem #00000025;
+}
+
+.btn-cta:hover {
+	opacity: 0.9;
+	transform: scale(0.98);
+}
+
+.preview {
+	justify-content: space-between;
+	gap: 2rem;
+	margin-top: 4rem;
+}
+
+.preview-item {
+	display: inline-block;
+	aspect-ratio: 3/2;
+	border: 0.125rem solid var(--stroke);
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.preview-item img,
+.sosmed-link {
+	transform: scale(1);
+	transition: 0.35s ease-in-out 0.1s;
+}
+
+.preview-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.preview-item img:hover,
+.sosmed-link:hover {
+	transform: scale(1.1);
+}
+
+.sosmed {
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	gap: 1rem;
+}
+
+.sosmed-box {
+	gap: 0.8rem;
+}
+
+.sosmed-link img {
+	width: 1.5rem;
+}
+
+@media screen and (min-width: 992px) {
+	.container {
+		margin: 0 auto;
+		width: 992px;
+	}
+	.navbar {
+		justify-content: start;
+		align-items: center;
+		gap: 2rem;
+		margin: 0;
+	}
+	.navbar-brand img {
+		width: 9rem;
+	}
+	.navbar-nav {
+		margin: -1rem;
+		padding: 0;
+		z-index: 0;
+		width: auto;
+		height: auto;
+		position: static;
+		background: none;
+		display: flex;
+		gap: 2rem;
+	}
+	.navbar-nav {
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1);
+	}
+	#navbarCollapse,
+	.navbar-menu {
+		display: none;
+	}
+
+	.nav-item {
+		margin: 0;
+	}
+
+	.nav-link {
+		font-size: 1.2rem;
+	}
+	.header {
+		width: 32rem;
+	}
+	.desc {
+		align-items: start;
+	}
+	.desc-title {
+		font-size: 3.25rem;
+		letter-spacing: 1.6rem;
+		margin: 0;
+	}
+	.desc-caption {
+		font-size: 1, 2rem;
+	}
+	.preview {
+        justify-content: center;
+        margin: 0;
+        width: 14rem;
+        height: 100vh;
+        position: absolute;
+        gap: 2rem;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+	}
+	.preview-item {
+        width: 100%;
+	}
+    .sosmed{
+        justify-content: start;
+    }
+}
